@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
 
 class HomeScreen extends StatelessWidget {  
+  static const String name = "home_screen";
   const HomeScreen({super.key});
 
   @override
@@ -17,13 +18,10 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _HomeView extends StatelessWidget {
-
-  //
   @override
   Widget build(BuildContext context) {
 
-    return ListView.builder(
-      
+    return ListView.builder(      
       padding: const EdgeInsets.all(8),
       itemCount: appMenuItems.length,
       itemBuilder: (context, index) {
@@ -39,12 +37,11 @@ class _CustomListTitle extends StatelessWidget {
     required this.menuItem,
   });
 
-  final MenuItems menuItem;
+  final MenuItems menuItem; 
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-
     return ListTile(
       leading: Icon(menuItem.icon, color: colors.primary,),
       trailing: Icon(Icons.arrow_forward_ios_rounded, color: colors.primary,),
@@ -52,6 +49,7 @@ class _CustomListTitle extends StatelessWidget {
       subtitle: Text(menuItem.subtitle),
       onTap: () {
         context.push(menuItem.link);
+        //context.pushNamed(CardScreen.name);
       },      
     );
   }

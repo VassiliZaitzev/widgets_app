@@ -18,7 +18,7 @@ class SnackbarScreen extends StatelessWidget {
   }
 
 
-  void OpenDialog(BuildContext context){
+  void openDialog(BuildContext context){
     showDialog(
       context: context, 
       barrierDismissible: false,
@@ -65,7 +65,7 @@ class SnackbarScreen extends StatelessWidget {
               child: Text("Licencias usadas")
             ),
             FilledButton.tonal(
-              onPressed: () => OpenDialog(context), 
+              onPressed: () => openDialog(context), 
               child: Text("Mostrar diálogo")
             )
           ],

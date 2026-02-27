@@ -144,7 +144,7 @@ class _CartType3 extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
 
     return Card(
-      color: colors.surfaceVariant,
+      color: colors.primary,
       elevation: elevation,
       child: Padding(
         padding: const EdgeInsetsGeometry.fromLTRB(10, 5, 10, 10),

@@ -22,6 +22,17 @@ class AppTheme {
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
     colorSchemeSeed: colorList[selectedColor],
+    /*textTheme: TextTheme(
+      bodyLarge: TextStyle(fontSize: 18),
+      bodyMedium: TextStyle(fontSize: 16),
+      bodySmall: TextStyle(fontSize: 14),
+      titleLarge: TextStyle(fontSize: 22),
+      titleMedium: TextStyle(fontSize: 20),
+      titleSmall: TextStyle(fontSize: 18),
+      headlineLarge: TextStyle(fontSize: 32),
+      headlineMedium: TextStyle(fontSize: 28),
+      headlineSmall: TextStyle(fontSize: 24),
+    ),*/
     appBarTheme: AppBarTheme(
       centerTitle: false,
     )

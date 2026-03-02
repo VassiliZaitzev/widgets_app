@@ -14,6 +14,7 @@ const colorList = <Color>[
 
 class AppTheme {
   final int selectedColor;
+  
   AppTheme({
     required this.selectedColor
   }):assert(selectedColor >= 0 , 'Color debe ser mayor a 0'),

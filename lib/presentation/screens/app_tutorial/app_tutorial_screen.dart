@@ -37,12 +37,10 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
           endReached = true;
         });
       }
-      print(page);
     });
   }
   @override
   void dispose() {
-    // TODO: implement dispose
     pageviewController.dispose();
     super.dispose();
   }

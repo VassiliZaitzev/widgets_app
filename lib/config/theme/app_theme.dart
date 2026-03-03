@@ -16,10 +16,12 @@ class AppTheme {
   final int selectedColor;
   final bool isDarkmode;
   final double fontSize;
+
   AppTheme({
-    required this.selectedColor,
-    required this.isDarkmode,
-    required this.fontSize
+    this.selectedColor = 0,
+    this.isDarkmode = false,
+    this.fontSize = 1.0
+
   }):assert(selectedColor >= 0 , 'Color debe ser mayor a 0'),
      assert(selectedColor < colorList.length , 'Color debe ser mayor a 0');
      
@@ -41,4 +43,14 @@ class AppTheme {
       )
     );
   }
+
+  AppTheme copyWith ({
+    int? selectedColor,
+    bool? isDarkmode,
+    double? fontSize
+  }) => AppTheme(
+    selectedColor: selectedColor ?? this.selectedColor, 
+    isDarkmode: isDarkmode ?? this.isDarkmode,
+    fontSize: fontSize ?? this.fontSize
+  );
 }

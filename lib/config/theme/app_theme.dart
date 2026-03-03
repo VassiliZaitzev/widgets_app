@@ -14,28 +14,31 @@ const colorList = <Color>[
 
 class AppTheme {
   final int selectedColor;
-  
+  final bool isDarkmode;
+  final double fontSize;
   AppTheme({
-    required this.selectedColor
+    required this.selectedColor,
+    required this.isDarkmode,
+    required this.fontSize
   }):assert(selectedColor >= 0 , 'Color debe ser mayor a 0'),
      assert(selectedColor < colorList.length , 'Color debe ser mayor a 0');
+     
+  
 
-  ThemeData getTheme() => ThemeData(
-    useMaterial3: true,
-    colorSchemeSeed: colorList[selectedColor],
-    /*textTheme: TextTheme(
-      bodyLarge: TextStyle(fontSize: 18),
-      bodyMedium: TextStyle(fontSize: 16),
-      bodySmall: TextStyle(fontSize: 14),
-      titleLarge: TextStyle(fontSize: 22),
-      titleMedium: TextStyle(fontSize: 20),
-      titleSmall: TextStyle(fontSize: 18),
-      headlineLarge: TextStyle(fontSize: 32),
-      headlineMedium: TextStyle(fontSize: 28),
-      headlineSmall: TextStyle(fontSize: 24),
-    ),*/
-    appBarTheme: AppBarTheme(
-      centerTitle: false,
-    )
-  );
+  ThemeData getTheme()  {
+    final safeFontSize = fontSize.clamp(0.7, 1.5);
+    return ThemeData(    
+      useMaterial3: true,
+      brightness: isDarkmode ? Brightness.dark : Brightness.light,
+      colorSchemeSeed: colorList[selectedColor],
+      textTheme: TextTheme(
+        bodyMedium: TextStyle(fontSize: 14 * safeFontSize),
+        titleLarge: TextStyle(fontSize: 22 * safeFontSize),
+        headlineMedium: TextStyle(fontSize: 26 * safeFontSize),
+      ),
+      appBarTheme: AppBarTheme(
+        centerTitle: false,
+      )
+    );
+  }
 }

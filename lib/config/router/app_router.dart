@@ -3,6 +3,7 @@
 // GoRouter configuration
 import 'package:go_router/go_router.dart';
 import 'package:widgets_app/presentation/screens/screens.dart';
+import 'package:widgets_app/presentation/screens/splash/splash_screen.dart';
 
 
 
@@ -63,6 +64,12 @@ final appRouter = GoRouter(
       path: '/theme-changer',
       name: ThemeChangeScreen.name,
       builder: (context, state) => ThemeChangeScreen(),
-    )
+    ),
+    GoRoute(
+      path: '/splash',
+      name: AnimatedSplashScreen.name,
+      builder: (context, state) => AnimatedSplashScreen(),
+    ),
+    
   ],
 );

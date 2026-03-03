@@ -71,7 +71,14 @@ const appMenuItems = <MenuItems>[
     subtitle: "Cambiar tema de la aplicacion",
     link: "/theme-changer",
     icon: Icons.color_lens_outlined
-  )
+  ),
+  MenuItems(
+    title: "Splash",
+    subtitle: "Cambiar tema de la aplicacion",
+    link: "/splash",
+    icon: Icons.color_lens_outlined
+  ),
+  
 
 
   

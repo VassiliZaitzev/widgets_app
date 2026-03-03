@@ -11,4 +11,7 @@ final colorListProvider = Provider((red) => colorList);
 final isDarkModeProvider = StateProvider<bool>((ref) => false);
 
 //un simple int
-final selectedColorProvider = StateProvider<int>((ref) => 0);
+final selectedColorProvider = StateProvider<int>((ref) => 1);
+
+//un simple double
+final fontSizeProvider = StateProvider<double>((ref) => 1.0);

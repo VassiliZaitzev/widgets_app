@@ -15,7 +15,7 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
   late Animation<double> _logoAnimation;
   late Animation<double> _fadeOutAnimation;
 
-  final int numberOfBars = 5;
+  final int numberOfBars = 3;
 
   @override
   void initState() {
@@ -23,19 +23,19 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
 
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4),
+      duration: const Duration(milliseconds: 2500),
     );
 
     // Logo animado con bounce
     _logoAnimation = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(0.3, 0.7, curve: Curves.elasticOut),
+      curve: const Interval(0.3, 0.7, curve: Curves.ease),
     );
 
     // Animación de transición final de fondo (azul → blanco)
     _fadeOutAnimation = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(0.7, 1.0, curve: Curves.easeIn),
+      curve: const Interval(0.1, 1.0, curve: Curves.easeInOut),
     );
 
     _controller.forward();
@@ -77,12 +77,12 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
 
                   final barAnimation = CurvedAnimation(
                     parent: _controller,
-                    curve: Interval(start, end, curve: Curves.easeInOut),
+                    curve: Interval(start, end, curve: Curves.decelerate),
                   );
 
                   return Expanded(
                     child: Align(
-                      alignment: Alignment.topCenter,
+                      alignment: Alignment.bottomCenter,
                       child: Container(
                         height: height * barAnimation.value,
                         color: Colors.white,
@@ -99,8 +99,9 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
                   child: Opacity(
                     opacity: _logoAnimation.value.clamp(0.0, 1.0),
                     child: Image.asset(
-                      "assets/images/CRS.png", // tu logo
-                      width: 550,
+                      "assets/images/CRS.png",
+                      width: 450,
+                      height: 250,
                     ),
                   ),
                 ),
